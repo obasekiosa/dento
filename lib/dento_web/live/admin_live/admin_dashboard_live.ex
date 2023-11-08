@@ -12,7 +12,6 @@ defmodule DentoWeb.AdminDashboardLive do
     if connected?(socket) do
       Endpoint.subscribe(@survey_results_topic)
       Endpoint.subscribe(@user_activity_topic)
-      IO.inspect("connected")
     end
     {
       :ok,

@@ -39,7 +39,6 @@ defmodule DentoWeb.SurveyLive do
 
   @impl true
   def handle_info({:created_demographic, demographic}, socket) do
-    IO.inspect(socket.assigns)
     {
       :noreply,
       socket

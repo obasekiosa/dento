@@ -61,7 +61,6 @@ defmodule DentoWeb.SurveyLive.RatingsLive.FormComponent do
       |> validate_rating(rating_params)
       |> put_flash(:info, "Validated?")
     }
-    |> IO.inspect()
   end
 
   defp validate_rating(%{assigns: %{rating: rating}} = socket, rating_params) do

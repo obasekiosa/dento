@@ -44,7 +44,6 @@ defmodule DentoWeb.SurveyLive.DemographicLive.FromComponent do
   end
 
   def handle_event("save", %{"demographic" => demographic_params}, socket) do
-    IO.inspect(demographic_params)
     :timer.sleep(1000)
     {
       :noreply,
