@@ -7,6 +7,8 @@ export PHX_SERVER=true
 mix deps.get --only prod
 MIX_ENV=prod mix compile
 
+mix ecto.migrate
+
 # Compile assets
 mix phx.digest
 
