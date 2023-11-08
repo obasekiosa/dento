@@ -1,0 +1,21 @@
+
+<h1>Send Your Promo Code to a Friend</h1>
+<h4>
+Enter your friend's email below and we'll send them a
+promo code for 10% off their first game purchase!
+</h4>
+
+
+<div class="max-w-[400px]">
+
+<div :if={@promo_sent_status in ~w(success failed)} class={"text-green-900 mt-4"}>
+    Promo sending status: <%= @promo_sent_status %>
+</div>
+<.simple_form for={@form} id="promo-form" phx-change="validate" phx-submit="save" >
+    <.input field={@form[:first_name]} type="text" label="First Name" phx-debounce="blur"/>
+    <.input field={@form[:email]} type="email" label="Email" phx-debounce="blur"/>
+    <:actions>
+        <.button phx-disable-with="Send...">Send Promo</.button>
+    </:actions>
+</.simple_form>
+</div>

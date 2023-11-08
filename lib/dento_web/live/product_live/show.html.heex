@@ -1,0 +1,32 @@
+<.header>
+  Product <%= @product.id %>
+  <:subtitle>This is a product record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/products/#{@product}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit product</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<article class="flex flex-col">
+  <img alt="product image" width="500" height="500" src={@product.image_upload || "/images/live_view_upload-1699137761-39276386587-3.png"} />
+  <.list>
+    <:item title="Name"><%= @product.name %></:item>
+    <:item title="Description"><%= @product.description %></:item>
+    <:item title="Unit price"><%= @product.unit_price %></:item>
+    <:item title="Sku"><%= @product.sku %></:item>
+  </.list>
+</article>
+
+<.back navigate={~p"/products"}>Back to products</.back>
+
+<.modal :if={@live_action == :edit} id="product-modal" show on_cancel={JS.patch(~p"/products/#{@product}")}>
+  <.live_component
+    module={DentoWeb.ProductLive.FormComponent}
+    id={@product.id}
+    title={@page_title}
+    action={@live_action}
+    product={@product}
+    patch={~p"/products/#{@product}"}
+  />
+</.modal>

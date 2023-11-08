@@ -1,0 +1,19 @@
+<section class="flex flex-col ">
+<%= if @demographic do %>
+    <.show_demographic demographic={@demographic}/>
+    <.show_ratings products={@products} current_user={@current_user} />
+<% else %>
+    <.live_component
+        module={DentoWeb.SurveyLive.DemographicLive.FromComponent}
+        id={"demographic-#{@current_user.username}"}
+        content="Demographics"
+        user={@current_user}
+    />
+<% end %>
+
+<.button phx-click={JS.push("test", value: %{true: true})}>Test</.button>
+</section>
+
+
+
+
